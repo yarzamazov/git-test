@@ -1,0 +1,301 @@
+yar@dorado:~/Документы/educatie-imagini$ git fetch 
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git fetch all
+fatal: 'all' does not appear to be a git repository
+fatal: Не удалось прочитать из внешнего репозитория.
+
+Удостоверьтесь, что у вас есть необходимые права доступа
+и репозиторий существует.
+yar@dorado:~/Документы/educatie-imagini$ git fetch -a
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git fetch origin 
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git fetch origin turtle
+Из ssh://gitlab.syfeed.com:50022/root/educatie-imagini
+ * branch            turtle     -> FETCH_HEAD
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git pull origin turtle
+Из ssh://gitlab.syfeed.com:50022/root/educatie-imagini
+ * branch            turtle     -> FETCH_HEAD
+Обновление 7ae4317..6b27144
+Fast-forward
+ test.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.txt
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git fetch --all
+Извлечение из origin
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+* master
+yar@dorado:~/Документы/educatie-imagini$ git checkout turtle 
+Ветка «turtle» отслеживает внешнюю ветку «turtle» из «origin».
+Переключено на новую ветку «turtle»
+yar@dorado:~/Документы/educatie-imagini$ git branch 
+  master
+* turtle
+yar@dorado:~/Документы/educatie-imagini$ ll
+итого 20
+drwxrwxr-x  3 yar yar 4096 июл  6 20:31 ./
+drwxr-xr-x 16 yar yar 4096 июл  6 15:36 ../
+drwxrwxr-x  8 yar yar 4096 июл  6 20:32 .git/
+-rw-rw-r--  1 yar yar   35 июл  2 00:36 README.md
+-rw-rw-r--  1 yar yar   11 июл  6 20:31 test.txt
+yar@dorado:~/Документы/educatie-imagini$ nano test.txt 
+yar@dorado:~/Документы/educatie-imagini$ git branch --all 
+  master
+* turtle
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch new
+yar@dorado:~/Документы/educatie-imagini$ git checkout new 
+Переключено на ветку «new»
+yar@dorado:~/Документы/educatie-imagini$ git branch
+  master
+* new
+  turtle
+yar@dorado:~/Документы/educatie-imagini$ git push origin new 
+Всего 0 (изменения 0), повторно использовано 0 (изменения 0)
+remote: 
+remote: To create a merge request for new, visit:
+remote:   https://gitlab.syfeed.com:8443/root/educatie-imagini/-/merge_requests/new?merge_request%5Bsource_branch%5D=new
+remote: 
+To ssh://gitlab.syfeed.com:50022/root/educatie-imagini.git
+ * [new branch]      new -> new
+yar@dorado:~/Документы/educatie-imagini$ git branch
+  master
+* new
+  turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch turtle 
+fatal: Ветка с именем «turtle» уже существует.
+yar@dorado:~/Документы/educatie-imagini$ git checkout turtle 
+Переключено на ветку «turtle»
+Ваша ветка обновлена в соответствии с «origin/turtle».
+yar@dorado:~/Документы/educatie-imagini$ git branch
+  master
+  new
+* turtle
+yar@dorado:~/Документы/educatie-imagini$ nano test_2.txt
+yar@dorado:~/Документы/educatie-imagini$ ll
+итого 24
+drwxrwxr-x  3 yar yar 4096 июл  6 20:44 ./
+drwxr-xr-x 16 yar yar 4096 июл  6 15:36 ../
+drwxrwxr-x  8 yar yar 4096 июл  6 20:40 .git/
+-rw-rw-r--  1 yar yar   35 июл  2 00:36 README.md
+-rw-rw-r--  1 yar yar    7 июл  6 20:44 test_2.txt
+-rw-rw-r--  1 yar yar   11 июл  6 20:31 test.txt
+yar@dorado:~/Документы/educatie-imagini$ git add test_2.txt 
+yar@dorado:~/Документы/educatie-imagini$ git status 
+На ветке turtle
+Ваша ветка обновлена в соответствии с «origin/turtle».
+
+Изменения, которые будут включены в коммит:
+  (use "git restore --staged <file>..." to unstage)
+	новый файл:    test_2.txt
+
+yar@dorado:~/Документы/educatie-imagini$ git commit
+[turtle cd03f9d] добавил тестовый файл
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test_2.txt
+yar@dorado:~/Документы/educatie-imagini$ git push
+Перечисление объектов: 4, готово.
+Подсчет объектов: 100% (4/4), готово.
+При сжатии изменений используется до 4 потоков
+Сжатие объектов: 100% (2/2), готово.
+Запись объектов: 100% (3/3), 349 bytes | 174.00 KiB/s, готово.
+Всего 3 (изменения 0), повторно использовано 0 (изменения 0)
+remote: 
+remote: View merge request for turtle:
+remote:   https://gitlab.syfeed.com:8443/root/educatie-imagini/-/merge_requests/1
+remote: 
+To ssh://gitlab.syfeed.com:50022/root/educatie-imagini.git
+   6b27144..cd03f9d  turtle -> turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch
+  master
+  new
+* turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch -D new 
+Ветка new удалена (была 6b27144).
+yar@dorado:~/Документы/educatie-imagini$ git branch
+  master
+* turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch -D origin/new 
+error: ветка «origin/new» не найдена.
+yar@dorado:~/Документы/educatie-imagini$ git branch -D origin new 
+error: ветка «origin» не найдена.
+error: ветка «new» не найдена.
+yar@dorado:~/Документы/educatie-imagini$ git branch --all 
+  master
+* turtle
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/new
+  remotes/origin/turtle
+yar@dorado:~/Документы/educatie-imagini$ git branch -D remotes/origin/new
+error: ветка «remotes/origin/new» не найдена.
+yar@dorado:~/Документы/educatie-imagini$ cat ~/.ssh/id
+cat: /home/yar/.ssh/id: Нет такого файла или каталога
+yar@dorado:~/Документы/educatie-imagini$ cd ~/.ssh/
+yar@dorado:~/.ssh$ ls
+id_rsa  id_rsa.pub  known_hosts
+yar@dorado:~/.ssh$ cat id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZSayLYvfVjqhxioRw9xMmuO9cs1+rsVCXb2bdrq2dYJQqv4HjOv3hH+bFJ5QD/Tb13d8FPXC6kDlO6OH9bNcLsC/d9twtp/Np7mDYjlqdt4iShYUwhqYniuTBOHjfP/H+5Y9dz8UC4V3fF5pZevOp5b9ebfYtuWVe5NZIfysdSFmB/cTR0m0m3EdxXCHsC495WpCqt4vm8hdbQHE8Vjk0ghbngEX6jwswSpFP55l94xSld9dy3nqQWfrYaoEt0lzy58NEg5K59KWFw9yQjIkvd2WCYdvsVoOGiVRe6l5MhpG9Fl+KpjUh+t2udoo4+oaQ+sfyZJMMdySO5+qR/uZ5lYcakx+q0tMKxCTLdy1RtRm+QbZTEq9TTYmqThgF3OdgByvvI6TroG+fKTKx9B8hVdiRnZLkNYSe+UcZ1nQXyg8+RpPWcqNsoTfen86qCj+T9nROEJdTF9Hc0A8gOwTTGMA//2j66OwIQettrvKCJer/nTjZSlqbw1mxGpNjoGc= yar@dorado
+yar@dorado:~/.ssh$ 
+yar@dorado:~/.ssh$ cd /home/yar/git/git-
+git-course/ git-test_0/ 
+yar@dorado:~/.ssh$ cd /home/yar/git/git-test_0/git-test/
+yar@dorado:~/git/git-test_0/git-test$ ll
+итого 20
+drwxrwxr-x 3 yar yar 4096 июл  6 18:51 ./
+drwxrwxr-x 3 yar yar 4096 июл  6 18:43 ../
+drwxrwxr-x 8 yar yar 4096 июл  6 18:52 .git/
+-rw-rw-r-- 1 yar yar  116 июл  6 18:50 psw-comunal.txt
+-rw-rw-r-- 1 yar yar   31 июл  6 18:43 README.md
+yar@dorado:~/git/git-test_0/git-test$ git origin show
+git: «origin» не является командой git. Смотрите «git --help».
+yar@dorado:~/git/git-test_0/git-test$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+Стандартные команды Git используемые в различных ситуациях:
+
+создание рабочей области (смотрите также: git help tutorial)
+   clone             Клонирование репозитория в новый каталог
+   init              Создание пустого репозитория Git или переинициализация существующего
+
+работа с текущими изменениями (смотрите также: git help everyday)
+   add               Добавление содержимого файла в индекс
+   mv                Перемещение или переименование файла, каталога или символьной ссылки
+   restore           Restore working tree files
+   rm                Удаление файлов из рабочего каталога и индекса
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+просмотр истории и текущего состояния (смотрите также: git help revisions)
+   bisect            Выполнение двоичного поиска коммита, который вносит ошибку
+   diff              Вывод разницы между коммитами, коммитом и рабочим каталогом и т.д.
+   grep              Вывод строк, соответствующих шаблону
+   log               Вывод истории коммитов
+   show              Вывод различных типов объектов
+   status            Вывод состояния рабочего каталога
+
+выращивание, отметка и настройка вашей общей истории
+   branch            Вывод списка, создание или удаление веток
+   commit            Запись изменений в репозиторий
+   merge             Объединение одной или нескольких историй разработки вместе
+   rebase            Повторное применение коммитов над верхушкой другой ветки
+   reset             Сброс текущего состояния HEAD на указанное состояние
+   switch            Switch branches
+   tag               Создание, вывод списка, удаление или проверка метки, подписанной с помощью GPG
+
+совместная работа (смотрите также: git help workflows)
+   fetch             Загрузка объектов и ссылок из другого репозитория
+   pull              Извлечение изменений и объединение с другим репозиторием или локальной веткой
+   push              Обновление внешних ссылок и связанных объектов
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+yar@dorado:~/git/git-test_0/git-test$ git show
+show          show-branch   
+yar@dorado:~/git/git-test_0/git-test$ git show
+show          show-branch   
+yar@dorado:~/git/git-test_0/git-test$ git show 
+commit 99775b1992356c8014d5adcafad7efd6d3048304 (HEAD -> main, origin/main, origin/HEAD)
+Author: yarzamazov <ruslan.arzamazov@gmail.com>
+Date:   Tue Jul 6 18:52:03 2021 +0300
+
+    добавил сведения об имуществе 222
+
+diff --git a/psw-comunal.txt b/psw-comunal.txt
+index c1a2821..cf9c62c 100644
+--- a/psw-comunal.txt
++++ b/psw-comunal.txt
+@@ -8,4 +8,5 @@ password: Pushkino_141
+ НАЛОГИ
+ 
+ 
++имущество
+ 
+yar@dorado:~/git/git-test_0/git-test$ git remote set-url origin git@github.com:yarzamazov/git-test.git
+yar@dorado:~/git/git-test_0/git-test$ git pull 
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.121.4' (RSA) to the list of known hosts.
+Уже обновлено.
+yar@dorado:~/git/git-test_0/git-test$ JavaScript error: resource://gre/modules/ActivityManager.jsm, line 127: NS_ERROR_NOT_AVAILABLE: 
+ll
+итого 20
+drwxrwxr-x 3 yar yar 4096 июл  6 18:51 ./
+drwxrwxr-x 3 yar yar 4096 июл  6 18:43 ../
+drwxrwxr-x 8 yar yar 4096 июл  6 21:10 .git/
+-rw-rw-r-- 1 yar yar  116 июл  6 18:50 psw-comunal.txt
+-rw-rw-r-- 1 yar yar   31 июл  6 18:43 README.md
+yar@dorado:~/git/git-test_0/git-test$ nano psw-comunal.txt 
+yar@dorado:~/git/git-test_0/git-test$ git add psw-comunal.txt 
+yar@dorado:~/git/git-test_0/git-test$ git status 
+На ветке main
+Ваша ветка обновлена в соответствии с «origin/main».
+
+Изменения, которые будут включены в коммит:
+  (use "git restore --staged <file>..." to unstage)
+	изменено:      psw-comunal.txt
+
+yar@dorado:~/git/git-test_0/git-test$ git commit 
+[main dbc6d82] добавил запись имущество222
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+yar@dorado:~/git/git-test_0/git-test$ git status 
+На ветке main
+Ваша ветка опережает «origin/main» на 1 коммит.
+  (используйте «git push», чтобы опубликовать ваши локальные коммиты)
+
+нечего коммитить, нет изменений в рабочем каталоге
+yar@dorado:~/git/git-test_0/git-test$ git push 
+Перечисление объектов: 5, готово.
+Подсчет объектов: 100% (5/5), готово.
+При сжатии изменений используется до 4 потоков
+Сжатие объектов: 100% (3/3), готово.
+Запись объектов: 100% (3/3), 384 bytes | 384.00 KiB/s, готово.
+Всего 3 (изменения 1), повторно использовано 0 (изменения 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:yarzamazov/git-test.git
+   99775b1..dbc6d82  main -> main
+yar@dorado:~/git/git-test_0/git-test$ git status 
+На ветке main
+Ваша ветка обновлена в соответствии с «origin/main».
+
+нечего коммитить, нет изменений в рабочем каталоге
+yar@dorado:~/git/git-test_0/git-test$ ll
+итого 20
+drwxrwxr-x 3 yar yar 4096 июл  6 21:15 ./
+drwxrwxr-x 3 yar yar 4096 июл  6 18:43 ../
+drwxrwxr-x 8 yar yar 4096 июл  6 21:21 .git/
+-rw-rw-r-- 1 yar yar  138 июл  6 21:15 psw-comunal.txt
+-rw-rw-r-- 1 yar yar   31 июл  6 18:43 README.md
+yar@dorado:~/git/git-test_0/git-test$ mv psw-comunal.txt psw-communal.txt 
+yar@dorado:~/git/git-test_0/git-test$ ll
+итого 20
+drwxrwxr-x 3 yar yar 4096 июл  6 21:21 ./
+drwxrwxr-x 3 yar yar 4096 июл  6 18:43 ../
+drwxrwxr-x 8 yar yar 4096 июл  6 21:21 .git/
+-rw-rw-r-- 1 yar yar  138 июл  6 21:15 psw-communal.txt
+-rw-rw-r-- 1 yar yar   31 июл  6 18:43 README.md
+yar@dorado:~/git/git-test_0/git-test$ git add psw-com
+psw-communal.txt  psw-comunal.txt   
+yar@dorado:~/git/git-test_0/git-test$ git add psw-communal.txt 
+yar@dorado:~/git/git-test_0/git-test$ git status 
+На ветке main
+Ваша ветка обновлена в соответствии с «origin/main».
+
+Изменения, которые будут включены в коммит:
+  (use "git restore --staged <file>..." to unstage)
+	новый файл:    psw-communal.txt
